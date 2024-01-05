@@ -15,21 +15,6 @@ const App = () => {
   console.log(icon);
   console.log("https://cdn.weatherapi.com/weather/64x64/day/296.png");
   console.log('===================================');  
-
-  React.useEffect(() => {
-    // fetch('http://api.weatherapi.com/v1/current.json?key=8645e7230aec463cb94152914240101&q=London')
-    // .then((response) => response.json())
-    // .then((data) => {
-    //    console.log('===================================');
-    //    console.log(data);
-    //    console.log('===================================');
-    // }).catch((error) => {
-    //   console.log('===================================');
-    //    console.log(error);
-    //    console.log('===================================');
-    // });
-  },[]);
-
   return(
    <>
        {loading ?(
@@ -46,7 +31,7 @@ const App = () => {
               </Text>
               <Text style={styles.temp}>{data.location.name}</Text>
               <Image source={{uri: icon}}
-               style={{width: 100, height: 100 }}
+               style={styles.icon}
                resizeMode="contain"
               />
               </SafeAreaView>
@@ -60,19 +45,28 @@ const App = () => {
 export default App;
 const styles = StyleSheet.create({
   temp:{
-    fontSize: 25
+    fontSize: 25,
+    textAlign: "center"
   },
   container:{
     flex:1,
-    backgroundColor:'#fff',
+
     alignItems: 'center',
     justifyContent: 'center'
   },
+  icon:{
+    width: 100, 
+    height: 100,
+    alignSelf: "center",
+    },
   mainContainer:{
     textAlign: "center",
-    margin: 75,
-    width: 225,
-    height: 225,
+    marginTop: 255,
+    margin: 15 ,
+    borderRadius: 25,
+    backgroundColor:'#F1F1F1',
+    width: 325,
+    height: 325,
     alignContent:"center",
     justifyContent: "space-around"
   }
